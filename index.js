@@ -1,6 +1,7 @@
 const express = require('express');
 const morgan = require('morgan');
 const cors = require('cors');
+const dotenv = require('dotenv');
 
 app = express()
 
@@ -10,6 +11,9 @@ app.use(morgan('dev'))
 app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({extended:false}));
+
+//Environment variables
+dotenv.config({path:'./.env'});
 
 //Init Database
 require('./config/database')
