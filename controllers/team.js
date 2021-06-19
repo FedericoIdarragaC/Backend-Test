@@ -7,7 +7,7 @@ exports.playerByTeam = async function(req,res){
 
             const regex = new RegExp(Name, "i")
             const players = await PlayerModel.paginate({club:{$regex : regex }},
-                                                       {page:Page,customLabels:{docs: 'Players'}});
+                                                       {page:Page,customLabels:{docs: 'Players',totalDocs:'totalPlayers'}});
             res.send(players);
         }catch(err){
             console.log(err);

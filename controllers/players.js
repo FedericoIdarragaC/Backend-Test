@@ -8,7 +8,7 @@ exports.playerBySearch = async function(req,res){
             const regex = new RegExp(search, 'i')
             const players = await PlayerModel.paginate({name:{$regex: regex}},
                                                     {page:page,
-                                                    customLabels:{docs: 'Players'},
+                                                    customLabels:{docs: 'Players',totalDocs:'totalPlayers'},
                                                     sort:{name:order ? order:'asc'}});                                               
             res.send(players);
         }catch(err){
