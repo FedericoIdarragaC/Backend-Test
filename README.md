@@ -40,5 +40,47 @@ Resultado en consola:
 ```bash
 Server on port:  3000
 Database connected
-
 ```
+
+## Endpoints
+
+### Jugadores por equipo 
+
+Se pasa por request body la pagina y el nombre de el equipo:
+
+url:
+```bash
+POST: localhost:3000/api/v1/team
+```
+```bash
+{
+  "Name":"inter",
+  "Page":1
+}
+```
+
+### Busqueda de jugadores
+
+Se pasa por query el string a buscar por nombre, el orden y la página
+
+url:
+```bash
+GET: localhost:3000/api/v1/players?search=Ramos&order=desc&page=1
+```
+
+
+## Protección de enpoints
+
+### API KEY
+
+En el archio .env que es cargado en las variables de entorno
+se encuentra la llave que deberá ser entregada en el header 
+para consumir los endpoints:
+
+```bash
+x-api-key : ____
+```
+
+
+
+
